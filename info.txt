@@ -1,1 +1,9 @@
 Kindergarten Smart Learning Project.
+
+https://www.udemy.com/course/python-tkinter-masterclass/
+
+https://www.udemy.com/course/desktop-gui-python-tkinter/
+
+https://www.udemy.com/course/building-cross-platform-python-gui-applications-with-tkinter/
+
+https://www.udemy.com/course/learn-complete-python-3-gui-using-tkinter/
