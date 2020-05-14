@@ -1,0 +1,26 @@
+
+
+This will help so that we wont have conflicts in naming conventions when comes to variable,function or in  Database
+
+Naming Conventions.
+1. If any WIDGET is used the naming conventions should be
+        widgetnameUseOfVariable
+    eg:-buttonSubmit
+    eg:-buttonRevertBack
+
+2. If any function a created: (camelCasing)
+        functionName
+    eg:-saveData
+    eg:-deleteData
+
+3. If a class is Created :
+        ClassName
+    eg:-LoginForm
+
+4. If new table is created: (separated by _):
+    eg:- login_form
+    eg:- text_to_speech
+
+5. If a new column is created: (ALL in Caps separated by _)
+    eg:- FIRST_NAME
+    eg:- ADDRESS
