@@ -5,43 +5,92 @@ import time
 from gtts import gTTS
 from playsound import playsound
 import pyttsx3
-from playbg import *
+#from playbg import *
+import time
 
 
+def playNow():
+    conn = sqlite3.connect(r'database/smartdata.db')
+    c = conn.cursor()
+    sql = "SELECT * from words where alphabet='A'"
+    c.execute(sql)
+    result = c.fetchall()
+    i = 0
+    for output in result:
+        
+        print(output[1])
+        print(i)
+        i = i+1
+
+        playsound(output[5])
+        #pass_parameter = "'" + output[4] + "'"
+        #print(pass_parameter)
+        global image
+        image2 = Image.open(output[4])
+        image2 = image2.resize((450, 450), Image.ANTIALIAS) ## The (250, 250) is (height, width)
+        load2 = ImageTk.PhotoImage(image2)
+
+        label1.config(text=output[1])
+        label2.configure(image = load2)
+        label2.image = load2
+
+
+        root.update()
+        root.after(2000)
+        
+
+        #label2.grid(row=4,column=1)
+        #label1.destroy()
+        #label2.destroy()
+        
+        #time.sleep(2)
+
+
+
+###########################################
 root = Tk()
 
-mainframe = LabelFrame(root,text="frame").pack()
+button_autoplay = Button(root, text="Auto Play Now", command=playNow)
+button_autoplay.grid(row=1,column=1)
 
-engine = pyttsx3.init()
-engine.setProperty('rate',90)
-engine.setProperty('volume', 0.7)
-playrn()
-conn = sqlite3.connect(r'database/smartdata.db')
+button_play = Button(root, text="Play Selected Option")
+button_play.grid(row=1,column=2)
 
-c = conn.cursor()
+var = IntVar()
 
-sql = "SELECT * from words where alphabet='A'"
+radioButtonF = Radiobutton(root, text="Female Voice", variable=var, value=1)
+radioButtonF.grid(row=1,column=3)
+radioButtonM = Radiobutton(root, text="Male Voice", variable=var, value=2)
+radioButtonM.grid(row=1,column=4)
 
-c.execute(sql)
+clicksem = StringVar()
+clicksem.set("A")
 
-result = c.fetchall()
+drop = OptionMenu(root, clicksem, "B", "C", "D", "Z")
+drop.grid(row=2,column=1)
 
-print(result[0][4])
-		
-image = Image.open(result[0][4])
-image = image.resize((150, 150), Image.ANTIALIAS) ## The (250, 250) is (height, width)
+global label1
+label1 = Label(root, text="Helllooo Worldddddddddd", font=("Helvetica",14))
+label1.grid(row=3,column=1)
+
+image = Image.open('images/atoz.png')
+image = image.resize((450, 450), Image.ANTIALIAS) ## The (250, 250) is (height, width)
 load = ImageTk.PhotoImage(image)
 
-label1 = Label(root, text="aas")
-label2 = Label(root, image = load)
+global label2
+label2 = Label(root, image=load)
+label2.grid(row=4,column=1,padx=30,columnspan=3)
 
-label1.pack()
-label2.pack()
+#mainframe = LabelFrame(root,text="frame").grid(row=1,column=1)
+
+#engine = pyttsx3.init()
+#engine.setProperty('rate',90)
+#engine.setProperty('volume', 0.7)
+#playrn()
 
 
 #engine.say(result[0][1])
 #engine.runAndWait()
-
 
 
 root.mainloop()
