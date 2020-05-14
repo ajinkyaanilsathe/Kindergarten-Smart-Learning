@@ -16,3 +16,36 @@ https://sqlitebrowser.org/dl/
 direct download link - https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.11.2-win64.zip
 
 sample db - https://cdn.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip
+
+
+entryName
+entryAge
+entryFatherName
+entryMotherName
+entryMobile
+entryEmail
+
+INSERT INTO `userinfo` (`child_name`, `child_age`, `father_name`, `mother_name`, `parent_mobile`, `parent_email`, `account_valid`) VALUES ('test', '1', 'test', 'test', '1234567890', 'test@test.test', '0');
+
+
+
+
+
+INSERT INTO userinfo (child_name,child_age,father_name,mother_name,parent_mobile,parent_email) VALUES (%s, %s, %s, %s, %s, %s)
+
+val = (dbEntryName,dbEntryAge,dbEntryFatherName,dbEntryMotherName,dbEntryMobile,dbEntryEmail)
+
+
+mysqldb = mysql.connector.connect(
+            host="sql110.epizy.com",
+            user="epiz_25772155",
+            passwd="dDHsr3OwNI",
+            database="epiz_25772155_smartlearn"
+        )
+
+mysqldb = mysql.connector.connect(
+            host="fdb25.awardspace.net",
+            user="3006878_kindergartendb",
+            passwd="Pass@123",
+            database="3006878_kindergartendb"
+        )
