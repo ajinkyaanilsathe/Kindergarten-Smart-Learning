@@ -49,7 +49,7 @@ class NewUser:
         print("HELLO ..ITS WORKING")
         top = Toplevel()
         top.title("SIGN UP FORM")
-        top.geometry("850x600")
+        top.geometry("850x700")
         labelHeader = Label(top, text="Kindergarten Smart Learning Signup Form", font=("Times", 20, "bold italic"),
                            fg="blue", relief=RAISED, wraplength=350, justify=CENTER, padx=10,pady=5)
         labelHeader.place(x=0,y=0,relwidth=1)
@@ -76,6 +76,8 @@ class NewUser:
         labelMobile.grid(row=4, column=0, pady=20)
         labelEmail = Label(frameChild, text="Please enter the email-id ", font=("Times", 15, "italic"), padx=20)
         labelEmail.grid(row=5, column=0, pady=20)
+        labelEmail = Label(frameChild, text="Please enter Password ", font=("Times", 15, "italic"), padx=20)
+        labelEmail.grid(row=6, column=0, pady=20)
 
 
         ############ENTRY BOXES##########
@@ -99,12 +101,12 @@ class NewUser:
         global entryEmail
         entryEmail = Entry(frameChild, width=50, font=("Helvica", 10, "bold italic"), relief=GROOVE)
         entryEmail.grid(row=5, column=1, ipady=6,padx=10)
-        # entryUserName = Entry(frameChild, width=50, font=("Helvica", 10, "bold italic"), relief=GROOVE)
-        # entryUserName.grid(row=6, column=1, ipady=6)
+        entryPassword = Entry(frameChild, width=50, show='*', font=("Helvica", 10, "bold italic"), relief=GROOVE)
+        entryPassword.grid(row=6, column=1, ipady=6)
         # entryUserName = Entry(frameChild, width=50, font=("Helvica", 10, "bold italic"), relief=GROOVE)
         # entryUserName.grid(row=7, column=1, ipady=6)
         submitBtn = Button(frameChild, text="Register Now", width=50, font=("Helvica", 10, "bold italic"), command=self.regdetail(top))
-        submitBtn.grid(row=6, column=1, ipady=6,padx=10)
+        submitBtn.grid(row=7, column=1, ipady=6,padx=10)
         
 
         #submitButton = Button(frameChild, text="Register Now", font=("Helvica", 20, "bold italic"))
