@@ -5,6 +5,7 @@ import mysql.connector
 from tkinter import messagebox
 #from subprocess import call
 import os
+import sendmail
 
 
 def validateUser():
@@ -94,7 +95,9 @@ def completeReg():
 			outputs = mysqlcursor.fetchone()
 			print(outputs)
 			print(mysqlcursor.rowcount)
+			sendmail.send_mail(entryEmailid.get())
 			messagebox.showinfo("Success", "Registration Successfull. Check Email")
+			
 			return True
 	#return
 
