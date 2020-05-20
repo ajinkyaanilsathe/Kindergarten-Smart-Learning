@@ -5,6 +5,40 @@ import mysql.connector
 
 class NewUser:
 
+    def regdetail(self):
+
+        print("inside reg")
+        
+        dbEntryName = entryName.get()
+        dbEntryAge = entryAge.get()
+        dbEntryFatherName = entryFatherName.get()
+        dbEntryMotherName = entryMotherName.get()
+        dbEntryMobile = entryMobile.get()
+        dbEntryEmail = entryEmail.get()
+
+        print(dbEntryName,dbEntryAge,dbEntryFatherName,dbEntryMotherName,dbEntryMobile,dbEntryEmail)
+        '''
+        mysqldb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            passwd="",
+            database="kindergarten"
+        )
+
+        if mysqldb.is_connected():
+            print("Yes Connected to MySQL")
+        
+        mysqlcursor = mysqldb.cursor()
+
+        sql = "INSERT INTO userinfo (child_name,child_age,father_name,mother_name,parent_mobile,parent_email) VALUES (%s, %s, %s, %s, %s, %s)"
+        val = (dbEntryName,dbEntryAge,dbEntryFatherName,dbEntryMotherName,dbEntryMobile,dbEntryEmail)
+
+        mysqlcursor.execute(sql,val)
+
+        mysqldb.commit()
+
+        print(mysqlcursor.rowcount," record inserted")'''
+        
 
     def loginForm(self,root):
         #displayCenter()
@@ -64,6 +98,7 @@ class NewUser:
         #########LABELS##############
         labelName = Label(frameChild,text="Please enter the name of child ",font=("Times",15,"italic"),padx=20)
         labelName.grid(row=0,column=0,pady=20)
+        
         labelAge = Label(frameChild, text="Please enter Age ", font=("Times", 15, "italic"), padx=20)
         labelAge.grid(row=1, column=0, pady=20)
         #labelToy = Label(frameChild, text="Please enter your favourite toy ", font=("Times", 15, "italic"), padx=20)
@@ -105,7 +140,7 @@ class NewUser:
         entryPassword.grid(row=6, column=1, ipady=6)
         # entryUserName = Entry(frameChild, width=50, font=("Helvica", 10, "bold italic"), relief=GROOVE)
         # entryUserName.grid(row=7, column=1, ipady=6)
-        submitBtn = Button(frameChild, text="Register Now", width=50, font=("Helvica", 10, "bold italic"), command=self.regdetail(top))
+        submitBtn = Button(frameChild, text="Register Now", width=50, font=("Helvica", 10, "bold italic"), command=regdetail())
         submitBtn.grid(row=7, column=1, ipady=6,padx=10)
         
 
@@ -120,38 +155,7 @@ class NewUser:
         #label2.pack(side = LEFT) #,ipady=50
 
 
-    def regdetail(self,top):
-        
-        dbEntryName = entryName.get()
-        dbEntryAge = entryAge.get()
-        dbEntryFatherName = entryFatherName.get()
-        dbEntryMotherName = entryMotherName.get()
-        dbEntryMobile = entryMobile.get()
-        dbEntryEmail = entryEmail.get()
-
-        print(dbEntryName,dbEntryAge,dbEntryFatherName,dbEntryMotherName,dbEntryMobile,dbEntryEmail)
-
-        mysqldb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            passwd="",
-            database="kindergarten"
-        )
-
-        if mysqldb.is_connected():
-            print("Yes Connected to MySQL")
-        
-        '''mysqlcursor = mysqldb.cursor()
-
-        sql = "INSERT INTO userinfo (child_name,child_age,father_name,mother_name,parent_mobile,parent_email) VALUES (%s, %s, %s, %s, %s, %s)"
-        val = (dbEntryName,dbEntryAge,dbEntryFatherName,dbEntryMotherName,dbEntryMobile,dbEntryEmail)
-
-        mysqlcursor.execute(sql,val)
-
-        mysqldb.commit()
-
-        print(mysqlcursor.rowcount," record inserted")'''
-        
+    
 
 
     def displayCenter(self):

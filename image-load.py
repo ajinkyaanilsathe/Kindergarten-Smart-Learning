@@ -12,7 +12,7 @@ import time
 def playNow():
     conn = sqlite3.connect(r'database/smartdata.db')
     c = conn.cursor()
-    sql = "SELECT * from words where alphabet='A'"
+    sql = "SELECT * from words"
     c.execute(sql)
     result = c.fetchall()
     i = 0
@@ -48,6 +48,9 @@ def playNow():
 
 
 ###########################################
+
+
+
 root = Tk()
 
 button_autoplay = Button(root, text="Auto Play Now", command=playNow)

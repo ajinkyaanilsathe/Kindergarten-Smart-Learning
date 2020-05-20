@@ -17,8 +17,7 @@ def display():
 	c.execute(sql)
 
 	result = c.fetchone()
-
-    print(result)
+	print(result)
 
 	#display individual items from list
 	'''for var in result:
