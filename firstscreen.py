@@ -3,12 +3,11 @@ from tkinter import *
 from tkinter import simpledialog
 import mysql.connector
 from tkinter import messagebox
-#from subprocess import call
 import os
 import sendmail
 
 
-def validateUser():
+def validateUser(localwindow):
 	print("validate user")
 
 	dbEntryEmail = entryEmail.get()
@@ -40,7 +39,7 @@ def validateUser():
             	print("Fill Details for login")
             else:
 	            if mysqlcursor.rowcount == -1:
-	            	messagebox.showwarning("Retry", "Wrong Email Id. Pleae Register")
+	            	messagebox.showwarning("Retry", "Wrong Email Id. Please Register")
 	            	print("Wrong Email")
 	            else:
 	            	#print(outputs[0])
@@ -48,9 +47,13 @@ def validateUser():
 		            	if outputs[1] == 1 :
 		            		print("Registered User !!")
 		            		#imageload.main()
-		            		#os.system('image-load-test.py')
+		            		
 		            		#exec(open('image-load-test.py').read())
 		            		#regWindow.destroy()
+		            		
+		            		localwindow.destroy() #localwindow.withdraw()
+		            		os.system('image-load.py')
+		            		
 		            		return True
 		            	else:
 		            		print("Not Registered User.")
@@ -95,7 +98,7 @@ def completeReg():
 			outputs = mysqlcursor.fetchone()
 			print(outputs)
 			print(mysqlcursor.rowcount)
-			sendmail.send_mail(entryEmailid.get())
+			sendmail.main(entryEmailid.get())
 			messagebox.showinfo("Success", "Registration Successfull. Check Email")
 			
 			return True
@@ -206,7 +209,7 @@ entryPassword.grid(row=2,column=1,ipadx=8,ipady=8)
 buttonSignup = Button(root, text="New User ? Sign Up Now..",font=("Times", 8, "bold"),command=regUser)
 buttonSignup.grid(row=3,column=0)
 
-buttonSignin = Button(root, text="Sign In",font=("Times",14,"bold"),command=lambda: [validateUser(),root.destroy()])
+buttonSignin = Button(root, text="Sign In",font=("Times",14,"bold"),command=lambda: [validateUser(root)])
 buttonSignin.grid(row=3,column=1)
 
 #####All the Entry Widgets

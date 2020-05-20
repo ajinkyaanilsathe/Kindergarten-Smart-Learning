@@ -44,6 +44,11 @@ def playNow():
         #label2.destroy()
         
         #time.sleep(2)
+def getSave():
+    print("Configuration : ")
+    print("Voice Gender : ",var.get())
+    print("Alpha Select : ",clickalpha.get())
+    return
 
 
 
@@ -53,23 +58,38 @@ def playNow():
 
 root = Tk()
 
+def displayCenter(makeCenter):
+    windowWidth = makeCenter.winfo_reqwidth()
+    windowHeight = makeCenter.winfo_reqheight()
+    print("Width", windowWidth, "Height", windowHeight)
+
+    # Gets both half the screen width/height and window width/height
+    positionRight = int(makeCenter.winfo_screenwidth() / 3 - windowWidth / 4)
+    positionDown = int(makeCenter.winfo_screenheight() / 3 - windowHeight / 4)
+
+    # Positions the window in the center of the page.
+    makeCenter.geometry("+{}+{}".format(positionRight, positionDown-100))
+
+displayCenter(root)
+
 button_autoplay = Button(root, text="Auto Play Now", command=playNow)
 button_autoplay.grid(row=1,column=1)
 
-button_play = Button(root, text="Play Selected Option")
+button_play = Button(root, text="Save Configuration",command=getSave)
 button_play.grid(row=1,column=2)
 
 var = IntVar()
+var.set(1)
 
 radioButtonF = Radiobutton(root, text="Female Voice", variable=var, value=1)
 radioButtonF.grid(row=1,column=3)
 radioButtonM = Radiobutton(root, text="Male Voice", variable=var, value=2)
 radioButtonM.grid(row=1,column=4)
 
-clicksem = StringVar()
-clicksem.set("A")
+clickalpha = StringVar()
+clickalpha.set("ALL")
 
-drop = OptionMenu(root, clicksem, "B", "C", "D", "Z")
+drop = OptionMenu(root, clickalpha,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 drop.grid(row=2,column=1)
 
 global label1
