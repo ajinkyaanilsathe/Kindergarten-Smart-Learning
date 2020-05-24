@@ -7,6 +7,7 @@ from playsound import playsound
 import pyttsx3
 #from playbg import *
 import time
+import fixsound
 
 
 def playNow():
@@ -50,6 +51,11 @@ def getSave():
     print("Alpha Select : ",clickalpha.get())
     return
 
+def fixAudio():
+    print("Fixing Audio")
+    fixsound.fixSoundNow()
+    return
+
 
 
 ###########################################
@@ -91,6 +97,9 @@ clickalpha.set("ALL")
 
 drop = OptionMenu(root, clickalpha,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 drop.grid(row=2,column=1)
+
+fixButton = Button(root, text="Fix Audio",command=fixAudio)
+fixButton.grid(row=2,column=2)
 
 global label1
 label1 = Label(root, text="Helllooo Worldddddddddd", font=("Helvetica",14))
