@@ -49,6 +49,7 @@ def getSave():
     print("Configuration : ")
     print("Voice Gender : ",var.get())
     print("Alpha Select : ",clickalpha.get())
+    print("Level : ",clicklevel.get())
     return
 
 def fixAudio():
@@ -63,6 +64,8 @@ def fixAudio():
 
 
 root = Tk()
+#root.geometry("800x600")
+root.title("KINDERGARTEN SMART LEARNING")
 
 def displayCenter(makeCenter):
     windowWidth = makeCenter.winfo_reqwidth()
@@ -78,7 +81,7 @@ def displayCenter(makeCenter):
 
 displayCenter(root)
 
-button_autoplay = Button(root, text="Auto Play Now", command=playNow)
+button_autoplay = Button(root, text="Play Now", command=playNow)
 button_autoplay.grid(row=1,column=1)
 
 button_play = Button(root, text="Save Configuration",command=getSave)
@@ -98,8 +101,14 @@ clickalpha.set("ALL")
 drop = OptionMenu(root, clickalpha,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 drop.grid(row=2,column=1)
 
+clicklevel = StringVar()
+clicklevel.set("AUTO")
+
+dropLevel = OptionMenu(root, clickalpha,"Easy","Medium","Hard")
+dropLevel.grid(row=2,column=2)
+
 fixButton = Button(root, text="Fix Audio",command=fixAudio)
-fixButton.grid(row=2,column=2)
+fixButton.grid(row=2,column=3)
 
 global label1
 label1 = Label(root, text="Helllooo Worldddddddddd", font=("Helvetica",14))

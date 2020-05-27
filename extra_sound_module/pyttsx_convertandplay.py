@@ -17,11 +17,14 @@ engine.setProperty('rate',90)
 engine.setProperty('volume', 0.7) 
 
 word1 = 'Apple'
-#word2 = 'Ball'
+word2 = 'Ball'
 # testing 
+
+engine.startLoop(False)
 engine.say(word1) 
-#engine.say(word2) 
-engine.runAndWait()
+engine.say(word2)
+#engine.runAndWait()
+engine.endLoop()
 
 
 # to find out installed voices in computer

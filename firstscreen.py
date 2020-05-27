@@ -17,10 +17,10 @@ def validateUser(localwindow):
 	#print(dbEntryPassword)
 
 	mysqldb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="",
-        database="kindergarten"
+        host="sql12.freemysqlhosting.net", #localhost
+        user="sql12343038", #root
+        passwd="PQ1ZuVTnGl", #""
+        database="sql12343038" #kindergarten
     )
 
 	if mysqldb.is_connected():
@@ -52,7 +52,7 @@ def validateUser(localwindow):
 		            		#regWindow.destroy()
 		            		
 		            		localwindow.destroy() #localwindow.withdraw()
-		            		os.system('image-load.py')
+		            		os.system('image-load-scale.py')
 		            		
 		            		return True
 		            	else:
@@ -79,11 +79,13 @@ def validateUser(localwindow):
 
 def completeReg():
 	print("Completing Registration")
+
 	mysqldb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="",
-        database="kindergarten")
+        host="sql12.freemysqlhosting.net", #localhost
+        user="sql12343038", #root
+        passwd="PQ1ZuVTnGl", #""
+        database="sql12343038" #kindergarten
+    )
 
 	if mysqldb.is_connected():
 		print("Yes Connected")

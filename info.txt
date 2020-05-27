@@ -1,3 +1,42 @@
+1) MySql Hosting Live 
+
+https://www.freemysqlhosting.net/login/
+
+Email : ilioa@hi2.in
+Pass : mca@123
+
+Details : 
+
+To connect to your database use these details
+Server: sql12.freemysqlhosting.net
+Name: sql12343038 (database name)
+Username: sql12343038
+Password: PQ1ZuVTnGl
+Port number: 3306
+
+
+2) Access MySql DB online on website via phpmyadmin
+
+http://www.phpmyadmin.co/
+
+Server = sql12.freemysqlhosting.net
+Username = sql12343038
+Password = PQ1ZuVTnGl
+
+3) Change code in firstscreen.py
+in validateser function
+
+
+mysqldb = mysql.connector.connect(
+        host="sql12.freemysqlhosting.net", #localhost
+        user="sql12343038", #root
+        passwd="PQ1ZuVTnGl", #""
+        database="sql12343038" #kindergarten
+    )
+
+===========================================================
+
+
 Kindergarten Smart Learning Project.
 
 https://www.udemy.com/course/python-tkinter-masterclass/
