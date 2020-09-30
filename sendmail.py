@@ -7,8 +7,8 @@ def main(recv):
 	print("inside is ",recv)
 	port = 587  # For starttls
 	smtp_server = "smtp.gmail.com"
-	sender_email = "trail.abc.xyz@gmail.com"
-	receiver_email = recv #ajinkyaanilsathe@gmail.com
+	sender_email = "<your email id here>"
+	receiver_email = recv
 	password = pw
 
 	message = MIMEMultipart("alternative")
