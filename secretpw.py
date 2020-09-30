@@ -1,4 +1,4 @@
-pw = "fake12345"
+pw = "<your password here>"
 '''
 m = """
 Thank You for Registering with Kindergarten Smart Learning !!
